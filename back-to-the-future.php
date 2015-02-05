@@ -8,9 +8,12 @@
  * Version: 1.0
  */
 
-add_filter('the_posts', 'show_future_posts');
+add_filter('the_posts', 'show_future_posts_back_to_the_future');
 
-function show_future_posts($posts)
+add_shortcode('backfuture', 'shortcode_back_to_the_future' );
+add_shortcode('backfutureend', 'shortcode_back_to_the_future_end' );
+
+function show_future_posts_back_to_the_future($posts)
 {
    global $wp_query, $wpdb;
 
@@ -20,5 +23,23 @@ function show_future_posts($posts)
    }
 
    return $posts;
+}
+
+function shortcode_back_to_the_future( $atts, $content ) {
+	extract( shortcode_atts( array(
+		'post_type' => 'post',
+		'post_status' => array( 'publish', 'future' ),
+	), $atts ) );
+
+	return "<?php $args = array(  	
+						'post_type' => {$post_type}, 
+						'post_status' => array( 'publish', 'future' )
+								);
+				$loop = new WP_Query( $args );
+				while ( $loop->have_posts() ) : $loop->the_post(); ?>";
+}
+
+function shortcode_back_to_the_future_end() {
+            return '<?php endwhile; wp_reset_query();?>';
 }
 ?>

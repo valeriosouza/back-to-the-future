@@ -15,6 +15,10 @@ Allow you show Future or Scheduled Post on Single Posts.
 * Displays future/scheduled posts on single.php(Single Post Template)
 * Enables comments for future/scheduled posts
 
+https://www.youtube.com/watch?v=6Tf8mPsvcOs
+
+https://www.youtube.com/watch?v=yptqRdig1rU
+
 == Installation ==
 
 1. Upload 'back-to-the-future.php' to the /wp-content/plugins/ directory
