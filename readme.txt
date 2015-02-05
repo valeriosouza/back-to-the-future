@@ -64,6 +64,8 @@ This displays all future and published posts.
 
 1. Post scheduled for October 21, 2015, the date movie Back to the future.
 
+1. Movie image from back to the future where it shows the date of the future.
+
 == For Developers ==
 
 On your template, just simply add the string 'post_status=future' to your WP_Query
