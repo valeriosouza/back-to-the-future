@@ -13,9 +13,12 @@ Allow you show Future or Scheduled Post on Single Posts.
 == Description ==
 
 * Displays future/scheduled posts on single.php(Single Post Template)
+* Displays future/scheduled posts using shortcode
 * Enables comments for future/scheduled posts
 
 https://www.youtube.com/watch?v=6Tf8mPsvcOs
+
+
 
 https://www.youtube.com/watch?v=yptqRdig1rU
 
@@ -26,7 +29,7 @@ https://www.youtube.com/watch?v=yptqRdig1rU
 
 == Frequently Asked Questions ==
 
-= How to show future/schedules post? =
+= How to show future/schedules post in theme? =
 
 On your template, just simply add the string 'post_status=future' to your WP_Query
 
@@ -40,13 +43,26 @@ Example: WP_Query('post_status=future');
 
 				while ( $loop->have_posts() ) : $loop->the_post(); 
 
+Read More in <http://codex.wordpress.org/Class_Reference/WP_Query/>
 
+= How to show future/schedules post in page using shortcode? =
+
+On your page or post using `[backfuture]` for show future posts.
+
+Parameters currently accepted in shortcode 
+
+- `post_type` = Default: post
+- `posts_per_page` = Default: All
+- `orderby` = Default: menu_order
+- `thumbsize` = Default: thumbnail
+
+Example `[backfuture post_type="movie" posts_per_page="5" thumbsize="large"]`
 
 This displays all future and published posts.
 
 == Screenshots ==
 
-1. Post scheduled for 21 October 2015, the date movie Back to the future.
+1. Post scheduled for October 21, 2015, the date movie Back to the future.
 
 == For Developers ==
 
@@ -63,7 +79,7 @@ Example: WP_Query('post_status=future');
 
 				while ( $loop->have_posts() ) : $loop->the_post(); 
 
-
+Read More in <http://codex.wordpress.org/Class_Reference/WP_Query/>
 
 This displays all future and published posts.
 

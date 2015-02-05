@@ -11,7 +11,6 @@
 add_filter('the_posts', 'show_future_posts_back_to_the_future');
 
 add_shortcode('backfuture', 'shortcode_back_to_the_future' );
-add_shortcode('backfutureend', 'shortcode_back_to_the_future_end' );
 
 function show_future_posts_back_to_the_future($posts)
 {
@@ -28,18 +27,32 @@ function show_future_posts_back_to_the_future($posts)
 function shortcode_back_to_the_future( $atts, $content ) {
 	extract( shortcode_atts( array(
 		'post_type' => 'post',
+		'posts_per_page' => '-99',
+		'orderby' => 'menu_order',
+		'thumbsize' => 'thumbnail',
 		'post_status' => array( 'publish', 'future' ),
 	), $atts ) );
-
-	return "<?php $args = array(  	
-						'post_type' => {$post_type}, 
-						'post_status' => array( 'publish', 'future' )
-								);
-				$loop = new WP_Query( $args );
-				while ( $loop->have_posts() ) : $loop->the_post(); ?>";
-}
-
-function shortcode_back_to_the_future_end() {
-            return '<?php endwhile; wp_reset_query();?>';
+	$output = '<div class="clear"></div><div class="back_to_the_future_posts"><ul>';
+	$args = array(  	
+			'post_type' => $post_type,
+			'posts_per_page' => $posts_per_page,  
+			'orderby' => $orderby,  
+			'post_status' => $post_status
+	);
+	$back_loop = new WP_Query( $args );
+	while ( $back_loop->have_posts() ) : $back_loop->the_post(); 
+		$output .= '<div id="back_post">'.
+					get_the_post_thumbnail($thumbsize).
+					'<h2 class="back_title">'.
+					get_the_title().
+					'</h2>'.
+					get_the_excerpt().
+					'<a class="read-more" href="'.
+                   get_permalink().
+                   '">'.__('Read More', 'back_to_the_future').'</a></div><!--  ends here -->';
+	endwhile;
+    wp_reset_query();
+    $output .= '</ul></div>';
+	return $output;
 }
 ?>
