@@ -1,6 +1,6 @@
 === Back to the Future ===
 Contributors: valeriosza, aliascomunicacao
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P5QTGDB64SU8E&lc=US&item_name=WordPress%20Plugins&no_note=0&cn=Adicionar%20instru%c3%a7%c3%b5es%20especiais%20para%20o%20vendedor%3a&no_shipping=1&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
+Donate link: http://valeriosouza.com.br/en/donate/
 Tags: future post, future post type, schedule post, schedule post type, future shows, scheduled shows, event post, future post, future event post, future, events, event, schedule, Post, posts, page, pages, post type
 Requires at least: 1.5
 Tested up to: 4.1

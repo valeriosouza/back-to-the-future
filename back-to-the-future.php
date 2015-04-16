@@ -12,6 +12,8 @@ add_filter('the_posts', 'show_future_posts_back_to_the_future');
 
 add_shortcode('backfuture', 'shortcode_back_to_the_future' );
 
+add_filter( 'plugin_row_meta', 'show_future_posts_plugin_row_meta', 10, 4 );
+
 function show_future_posts_back_to_the_future($posts)
 {
    global $wp_query, $wpdb;
@@ -55,4 +57,15 @@ function shortcode_back_to_the_future( $atts, $content ) {
     $output .= '</ul></div>';
 	return $output;
 }
+
+function show_future_posts_plugin_row_meta( $links, $file ) {
+		if( plugin_basename( __FILE__ ) === $file ) {
+			$links[] = sprintf(
+				'<a target="_blank" href="%s">%s</a>',
+				esc_url('http://valeriosouza.com.br/en/donate/'),
+				__( 'Donate', 'back_to_the_future' )
+			);
+		}
+		return $links;
+	}
 ?>
