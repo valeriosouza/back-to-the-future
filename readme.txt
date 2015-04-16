@@ -8,7 +8,7 @@ Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Allow you show Future or Scheduled Post on Single Posts.
+Allow show Future or Scheduled Post to be visible with shortcode or WP_Query in Single Posts.
 
 == Description ==
 
@@ -63,6 +63,8 @@ This displays all future and published posts.
 == Screenshots ==
 
 1. Post scheduled for October 21, 2015, the date movie Back to the future.
+
+1. Movie image from back to the future where it shows the date of the future.
 
 == For Developers ==
 
